@@ -34,3 +34,26 @@ go run main.go
 Lembrar de instalar o WSL2 e Docker. Vejo o vídeo: [https://www.youtube.com/watch?v=usF0rYCcj-E](https://www.youtube.com/watch?v=usF0rYCcj-E) 
 
 Siga o guia rápido de instalação: [https://github.com/codeedu/wsl2-docker-quickstart](https://github.com/codeedu/wsl2-docker-quickstart) 
+
+
+up docker
+
+docker-compose up -d      
+
+list 
+
+docker-compose ps   
+
+Enter into container
+
+docker exec -it simulator bash
+
+#Gerenciador de pacotes do GO inicializar
+
+go mod init github.com/codeedu/imersaofsfc2-simulator
+
+#O projeto possui dois dockers compose, do apache-kafka e da aplicação
+
+cd apache-kafka && docker-compose up -d
+docker exec -it kafka_kafka_1 bash
+kafka-console-consumer --bootstrap-server=localhost:9092 --topic=readtest

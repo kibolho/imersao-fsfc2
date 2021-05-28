@@ -2,7 +2,12 @@
 
 ## Descrição
 
-Repositório do Apache Kafka (Backend)
+Repositório do Apache Kafka (Backend) 
+Com connector do elasticsearch
+Arquivo com as propriedades dessa conexão
+connector/elasticsearch.properties
+
+Esse arquivo deve ser adicionado no control center do apache-kafka
 
 ## Configurar /etc/hosts
 
@@ -24,6 +29,35 @@ docker-compose up
 ```
 
 Quando parar os containers do Kafka, lembre-se antes de rodar o **docker-compose up**, rodar o **docker-compose down** para limpar o armazenamento, senão lançará erro ao subir novamente.
+
+## Entrar no Bash do Apache-kafka
+
+docker exec -it apache-kafka_kafka_1 bash
+
+### Enviar mensagem
+
+kafka-console-producer --bootstrap-server=localhost:9092 --topic=route.new-direction
+>{"clientId":"a","routeId":"1"}
+
+
+## Debug
+
+Listar Containers 
+```
+docker-compose ps
+```
+Mostrar logs
+```
+docker logs kafka-connect
+```
+
+## Acessar Control Center
+
+localhost:9021
+
+## Acessar o Kibana/ElasticSearch
+
+localhost:5601
 
 ### Para Windows 
 
